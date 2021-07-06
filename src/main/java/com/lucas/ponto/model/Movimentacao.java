@@ -2,29 +2,28 @@ package com.lucas.ponto.model;
 
 import lombok.*;
 
-import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Entity
 @Getter
 @Setter
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
 @EqualsAndHashCode
-@Builder
+@AllArgsConstructor
 public class Movimentacao {
-
+    @Id
     @EmbeddedId
     private MovimentacaoId id;
     private LocalDateTime dataEntrada;
     private LocalDateTime dataSaida;
     private BigDecimal periodo;
-    @OneToMany
+    @ManyToOne
     private Ocorrencia ocorrencia;
-    @OneToMany
+    @ManyToOne
     private Calendario calendario;
 
     @AllArgsConstructor

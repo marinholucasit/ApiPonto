@@ -2,17 +2,22 @@ package com.lucas.ponto.model;
 
 import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+
 @Getter
 @Setter
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
 @EqualsAndHashCode
-@Builder
+@AllArgsConstructor
+@Entity
 public class Usuario {
+    @Id
     private Long id;
     @ManyToOne
     private CategoriaUsuario categoriaUsuario;
