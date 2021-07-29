@@ -15,14 +15,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Collections;
 
-@Configuration
-@EnableSwagger2
+//@Configuration
+//@EnableSwagger2
 public class SwaggerConfig {
-    @Bean
+    //@Bean
     public Docket apiAdmin() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.lucas.ponto"))
+                .apis(RequestHandlerSelectors.basePackage("com.lucas"))
                 .paths(PathSelectors.ant("/**"))
                 .build()
                 .apiInfo(apiInfo())
@@ -37,7 +37,7 @@ public class SwaggerConfig {
                                         .build()));
     }
 
-    @Bean
+    //@Bean
     public ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("API-REST")
